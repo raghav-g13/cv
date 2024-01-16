@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Build LaTeX document and Deploy to Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -22,8 +22,31 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
+  
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: LaTeX
+          root_file: main.tex
+          extra_fonts: ./fonts/*.ttf
+      - name: Uploading artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: PDF
+          path: main.pdf
+
+  # Deploy job 
   deploy:
+
+    # Add a dependency to the build job
+    needs: build
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

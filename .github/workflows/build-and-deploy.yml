@@ -24,10 +24,7 @@ concurrency:
 jobs:
   
   # Build job
-  build-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
@@ -39,6 +36,29 @@ jobs:
           working_directory: LaTeX
           root_file: main.tex
           extra_fonts: ./fonts
+      - name: Save document in cache
+        uses: actions/cache/save@v3
+        with:
+          path: ./LaTeX/main.pdf
+          key: $GITHUB_SHA
+
+  commit:
+
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Restore document from cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./LaTeX/main.pdf
+          key: $GITHUB_SHA
+          fail-on-cache-miss: true
       - name: Commit document
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -68,6 +88,18 @@ jobs:
           # Optional. Prevents the shell from expanding filenames. 
           # Details: https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
           disable_globbing: true
+
+  deploy:
+
+    needs: commit
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

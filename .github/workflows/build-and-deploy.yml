@@ -40,7 +40,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: ./LaTeX/main.pdf
-          key: $GITHUB_SHA
+          key: ${{ github.sha }}
 
   commit:
 
@@ -57,7 +57,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./LaTeX/main.pdf
-          key: $GITHUB_SHA
+          key: ${{ github.sha }}
           fail-on-cache-miss: true
       - name: Commit document
         uses: stefanzweifel/git-auto-commit-action@v5

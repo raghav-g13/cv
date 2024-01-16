@@ -1,0 +1,407 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is a modified ONE COLUMN version of
+% the following template:
+% 
+% Deedy - One Page Two Column Resume
+% LaTeX Template
+% Version 1.1 (30/4/2014)
+%
+% Original author:
+% Debarghya Das (http://debarghyadas.com)
+%
+% Original repository:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% This template uses several fonts not included with Windows/Linux by
+% default. If you get compilation errors saying a font is missing, find the line
+% on which the font is used and either change it to a font included with your
+% operating system or comment the line out to use the default font.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% TODO:
+% 1. Integrate biber/bibtex for article citation under publications.
+% 2. Figure out a smoother way for the document to flow onto the next page.
+% 3. Add styling information for a "Projects/Hacks" section.
+% 4. Add location/address information
+% 5. Merge OpenFont and MacFonts as a single sty with options.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CHANGELOG:
+% v1.1:
+% 1. Fixed several compilation bugs with \renewcommand
+% 2. Got Open-source fonts (Windows/Linux support)
+% 3. Added Last Updated
+% 4. Move Title styling into .sty
+% 5. Commented .sty file.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Known Issues:
+% 1. Overflows onto second page if any column's contents are more than the
+% vertical limit
+% 2. Hacky space on the first bullet point on the second column.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{deedy-resume-openfont}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     LAST UPDATED DATE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\lastupdated
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\namesection{Raghav}{Gupta}{ \urlstyle{same}\href{https://raghav-g13.github.io}{Website} | 
+\href{https://github.com/raghav-g13}{GitHub} | \href{https://www.linkedin.com/in/raghavgupta1303/}{LinkedIn}\\
+\href{mailto:raghavgupta@berkeley.edu}{raghavgupta@berkeley.edu} | 424.272.7363
+}
+
+\section{Education}
+
+
+\runsubsection{University of California, Berkeley}
+\descript{| PhD in Computer Science}
+\location{Aug 2023 - Present}
+Advisor: Prof. Borivoje Nikolic
+\vspace*{3pt}
+\\
+\descript{Coursework: } Architectures and Systems for Warehouse-Scale Computers (A)
+
+\vspace{6pt}
+
+\runsubsection{University of California, Berkeley}
+\descript{| BS in Electrical Engineering and Computer Science}
+\location{Aug 2019 - May 2023 | GPA: 3.95/4.0}
+High Honors | Dean's List
+\vspace*{3pt}
+\\
+\descript{Coursework: } Computer Architecture and Engineering (A)
+\textbullet{}
+Operating Systems and System Programming (A)
+\textbullet{}
+Introduction to Digital Design and Integrated Circuits (A+)
+\textbullet{}
+22nm SoC for IoT (A)
+\textbullet{}
+Advanced Topics in Computer Systems (A-)
+\textbullet{}
+Programming Languages and Compilers (A)
+% \textbullet{}
+% Introduction to Robotics
+% \textbullet{}
+% Quantum Mechanics
+% \textbullet{}
+% Efficient Algorithms and Intractable Problems
+% \textbullet{}
+% Signals and Systems
+% \textbullet{}
+% Designing Information Devices and Systems I, II
+% \textbullet{}
+% Discrete Mathematics and Probability Theory
+% \textbullet{}
+% Teaching Techniques for Computer Science
+% \textbullet{}
+% Social Implications of Computer Technology
+
+\sectionsep
+
+\section{Research Interests: Computer Architecture}
+Hyperscale Architecture and Systems 
+\textbullet{} 
+Hardware/Software Co-design 
+\textbullet{}
+Profile-Guided Methods
+\sectionsep
+
+\section{Research Experience}
+
+\runsubsection{SLICE Lab at UC Berkeley}
+\descript{| Student Researcher}
+\location{Jan 2021 – Present | Berkeley, CA |  \href{https://slice.eecs.berkeley.edu}{\bf Website}}
+
+% \vspace{\topsep} % Hacky fix for awkward extra vertical space
+% Working on computer architecture topics with graduate students in Prof. Krste Asanovic's and Prof. Borivoje Nikolic's groups. 
+
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+
+\descript{Multi-level Simulation | {\bf In-progress}}
+{\normalsize
+\begin{tightemize}
+\item Building a multi-level simulator that trades-off speed and fidelity in a hierarchy of simulators to enable DSE on large workloads
+\item Using program analysis to identify critical portions of an execution trace to execute at high fidelity
+\item Investigating warm-up strategies to approximate cache state 
+\end{tightemize}
+}
+
+
+\descript{Accelerating Hyperscale RPCs | {\bf In-progress}}
+{\normalsize
+\begin{tightemize}
+\item Investigating orchestration to offload RPCs to a collection of accelerators
+\item Working on porting the RPC software stack to RISC-V
+\end{tightemize}
+}
+
+\descript{Extending FirePerf to Userspace |  \href{https://dl.acm.org/doi/pdf/10.1145/3373376.3378455}{\bf Original Paper} | \href{https://docs.google.com/gview?url=https://github.com/Quizenger/cv/raw/main/resources/FirePerf_Poster.pdf}{\bf Poster} | \href{https://docs.google.com/gview?url=https://github.com/Quizenger/cv/raw/main/resources/FirePerf_Paper.pdf}{\bf Userspace Paper}}
+
+\begin{tightemize}
+{\normalsize
+\item An FPGA-accelerated full-system hardware/software performance profiling utility built on top of FireSim
+\item Provides high-fidelity out-of-band introspection with call stack reconstruction and Flame Graph generation
+\item Extended FirePerf to support userspace profiling by instrumenting Rocket Chip trace port, obtaining DWARF + hex information, constructing a user binary search space and matching traces to it
+}
+\end{tightemize}
+
+\descript{FireMarshal Networking |  \href{https://ieeexplore.ieee.org/abstract/document/9408192/}{\bf Original Paper}}
+\begin{tightemize}
+{\normalsize
+\item FireMarshal is an open-source software workload management tool for reliable and reproducible research 
+\item Automates bootable workload image generation and evaluation on FireSim, QEMU, and Spike platforms
+\item Implemented running multi-node workloads concurrently in QEMU
+\item Implemented a network interface using Virtual Distributed Ethernet for multi-node workloads emulated in QEMU
+}
+\end{tightemize}
+
+% \vspace{\topsep}
+
+\sectionsep
+
+%\topsep
+% \vspace{\topsep}
+\section{Work Experience}
+\runsubsection{NVIDIA}
+\descript{| Power Architect Intern}
+\location{May 2022 – Aug 2022 | Santa Clara, CA }
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\descript{CPU Power Modeling for Gaming Workloads}
+{\normalsize
+\begin{tightemize}
+\item Developed a strategy for application-specific CPU power modeling on production silicon
+\item Targeted characteristics of gaming workloads and isolated static and dynamic power costs
+\item Automated data collection, processing, visualization, modeling and summary statistics
+\end{tightemize}
+}
+
+\vspace{\topsep}
+\runsubsection{Omnistrate}
+\descript{| Software Engineering Intern}
+\location{May 2023 – July 2023 | Remote }
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\descript{Monitoring for Stateful Containerized Cloud Applications}
+{\normalsize
+\begin{tightemize}
+\item Developed monitoring infrastructure for stateful containers using the sidecar pattern
+\item Implemented support for application-specific probes and process metadata checks to trigger alerts and fail-over
+\item Improved reliability at scale for a public database provider's DBaaS offering
+\end{tightemize}
+}
+\sectionsep
+
+% \vspace*{3pt}
+% \\
+% \descript{Research Interests: Computer Architecture}
+% \textbullet{}
+% Cache and Memory Structures
+
+\section{Teaching Experience}
+
+\runsubsection{EE290C - 22nm SoC for IoT}
+\descript{| Teaching Assistant}
+\location{Fall 2022 - Spring 2023}
+\vspace{\topsep}
+\begin{tightemize}
+\item Developed teaching resources for RISC-V SoC tapeout, on topics such as the use of RTL generators (especially custom accelerators) and verification in simulation, that were shared as part of Intel's University Shuttle Program
+\item Managed and supported 3 teams across 2 chips as they designed specialized modules for sparse-dense matrix multiplication, near-cache compute, and Extended Kalman Filter
+\end{tightemize}
+\sectionsep
+
+\runsubsection{EECS 151/251A -  Introduction to Digital Design
+and Integrated Circuits }
+\descript{| Teaching Assistant}
+\location{Fall 2022 |  \href{https://inst.eecs.berkeley.edu/~eecs151/fa22/}{\bf Website}}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item Taught 1 weekly office hour and 1 weekly lab section using Xilinx PYNQ FPGAs for Berkeley's upper division VLSI course catered towards undergraduates and graduates
+\item Helped students learn hardware design methods and principles using Verilog, VCS, and waveforms as they implemented FSMs, audio synthesis circuits, UART modules and FIFOs on FPGAs
+\item Supported students in applying architectural and microarchitectural concepts to design a 3+ stage pipelined RISC-V datapath with L1 data cache, UART/MMIO and optimize it for timing
+\item Designed a memory controller lab with specification and testbenches as an introduction to working with synchronous memories
+\end{tightemize}
+\sectionsep
+
+\runsubsection{EECS16A - Designing Information Devices and Systems I}
+\descript{|  Lab Teaching Assistant and Head Lab Content/Development}
+\location{Summer 2020 – Spring 2022 | \href{https://inst.eecs.berkeley.edu/~ee16a/sp22/}{\bf Website}}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item Taught a weekly lab section of 50+ engineering undergraduates for Berkeley's introductory EECS course for 5 semesters
+\item Assisted students in building a single pixel camera, resistive and capacitive touchscreens, and an acoustic positioning system
+\item Trained lab staff and managed lab content for 1000+ students, revamped existing labs, developed new labs and managed the shift to online labs while achieving the requisite learning goals. 
+\end{tightemize}
+\sectionsep
+
+\runsubsection{CS61C - Great Ideas in Computer Architecture}
+\descript{| Teaching Assistant}
+\location{Summer 2021 | \href{https://cs61c.org/su21}{\bf Website}}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item Taught 2 discussion sections and 1 office hour weekly for Berkeley's introductory computer architecture and systems course
+\item Developed content and infrastructure for projects on C programming and Logisim datapath design
+\item Helped design labs on Logisim datapath design, pipelining, and caches
+\end{tightemize}
+\sectionsep
+
+\section{Projects}
+
+\runsubsection{Bearly ML: SoC for Machine Learning}
+\descript{| EE290C}
+\location{ Jan 2022 – May 2022 | \href{https://hc2023.hotchips.org/assets/program/posters/HC2023.UCBerkeley.YufengChi.Poster.v06.pdf}{\bf Poster}}
+\begin{tightemize}
+\item Designed, verified, and taped-out a RISC-V SoC with ML/DSP accelerators in Intel 16 technology using the Chipyard environment 
+\item Member of 5-person team that developed a sparse-dense matrix multiplication accelerator using the Rocket Custom Coprocessor (RoCC) interface
+\item Tightly-coupled with a 5 stage, in-order Rocket core with 16KB L1 DCache, 4KB L1 ICache
+\item Wrote Chisel RTL, performed verification in functional simulation with unit-testing and integration testing with bare-metal C tests, and resolved floor-planning Design Rule Violations
+\item Maximum frequency: 500 MHz, Achievable Throughput: 2.6 uint8 GOPS
+\end{tightemize}
+\sectionsep
+
+% \runsubsection{RISC-V Core on FPGA}
+% \descript{| EECS151}
+% \location{ Oct 2021 – Dec 2021  | \href{https://docs.google.com/gview?url=https://github.com/Quizenger/cv/raw/main/resources/EECS_251A_Lab_Report.pdf}{\bf Report}}
+% \begin{tightemize}
+% \item Team of 2 that designed a 3-stage RISC-V core with UART/MMIO, polyphonic audio synthesizer and BHT-based branch predictor in Verilog
+% \item Won class-wide Apple design contest for performance at a frequency of 70 MHz with a CPI of 1.16 on the matrix multiplication kernel
+% \end{tightemize}
+% \sectionsep
+
+% \runsubsection{Branch Predictor}
+% \descript{| Lab Project for CS152}
+% \location{ Mar 2021 – Apr 2021 | \href{https://docs.google.com/gview?url=https://github.com/Quizenger/cv/raw/main/resources/Lab_3_Report_Open_Ended_Portion.pdf}{\bf Report}}
+% \begin{tightemize}
+% \item Designed and analyzed an 8192-entry tournament predictor using a Gshare predictor, a bimodal predictor, and an arbiter in a 3-person team
+% \item Implemented using the C++ branch predictor framework in BOOM out-of-order core
+% \item Performed >25\% better than baseline bimodal predictor
+% \end{tightemize}
+% \sectionsep
+
+\pagebreak
+
+\runsubsection{PintOS}
+\descript{| Projects for CS162}
+\location{ Jan 2022 – May 2022 }
+\begin{tightemize}
+\item As a 3-person team, implemented the following features in an x86-based educational OS running as a VM in QEMU/Bochs with extensive debugging in GDB
+\item Supported user program execution with syscall argument passing, process control syscalls (halt, exec, wait, exit), basic file operation syscalls, and a floating point unit
+\item Implemented multithreading with an efficient sleep timer, strict priority scheduler with priority donation, and a simplified version of the user-level pthread library and user-level synchronization
+\item Implemented a Unix FFS-like filesystem with buffer cache, extensible files and support for subdirectories and relative paths
+\end{tightemize}
+\sectionsep
+
+% \runsubsection{CS61CPU}
+% \descript{| Project for CS61C}
+% \location{ Nov 2020 }
+% \begin{tightemize}
+% \item Designed a 2-stage pipelined RISC-V Datapath using Logisim in a team of 2
+% \item Optimized control logic by simplifying boolean expressions for each signal
+% \item Won class-wide Apple design contest for minimal transistor use
+% \end{tightemize}
+% \sectionsep
+
+\section{Publications and Presentations}
+\vspace{8pt}
+\begin{tightemize}
+% \item Whangbo, Joonho, Edwin Lim, Chengyi Lux Zhang, Kevin Anderson, Abraham Gonzalez,\custombold{ Raghav Gupta,} Nivedha Krishnakumar, et al. \custombold{"FireAxe: Multi-FPGA Simulation for Scale-Up Hardware Designs."} (Under submission)
+\item <Anonymized>, <Anonymized>, <Anonymized>, <Anonymized>, <Anonymized>,\custombold{ Raghav Gupta,} <Anonymized>, et al. \custombold{"Partitioning Large-Scale Monolithic Hardware Designs for FireSim."} (Under submission)
+% \item Whangbo, J., Lim, E., Zhang, C.L., Anderson, K., Gonzalez, A.,\custombold{ Gupta, R.}, Krishnakumar, N., Karandikar, S., Shao, Y. S., Nikolic, B., \& Asanovic, K. \custombold{Partitioning Large-Scale Monolithic Designs for FireSim.} (Under submission)
+\item Chi, Yufeng, Franklin Huang,\custombold{ Raghav Gupta,} Ella Schwarz, Jennifer Zhou, Reza Sajadiany, Animesh Agrawal, et al. \href{https://hc2023.hotchips.org/assets/program/posters/HC2023.UCBerkeley.YufengChi.Poster.v06.pdf} {\custombold{"A Heterogeneous RISC-V SoC for ML Applications in Intel 16 Technology."}} Poster presented at HotChips 2023, Stanford, CA, August 27-28, 2023.
+\end{tightemize}
+\sectionsep
+
+\section{Awards}
+\vspace{8pt}
+\begin{tightemize}
+\item EECS Oustanding TA Award (2020 - 2021)
+\item CS61C Project - RISCV CPU in Logisim - Apple Design Award (Fall 2020)
+\item EECS151 Project - RISCV Core on FPGA - Apple Design Award (Fall 2021)
+\item Edward Frank Kraft Award (Fall 2019)
+\item Times of India - Spark Scholarship (2018)
+\end{tightemize}
+\sectionsep
+
+\section{Organizations}
+\runsubsection{Eta Kappa Nu}
+\descript{| EECS HONOR
+SOCIETY}
+\location{Jan 2021 - May 2023}
+\vspace{3pt}
+\descript{Tutoring Officer}
+{\normalsize
+Responsible for managing activities of the tutoring committee, such as organizing and running exam review sessions, planning daily office hours, and supporting learning resources, in Spring 2022.
+}
+\\
+\vspace{3pt}
+\descript{DeCal Assistant Officer}
+{\normalsize
+Responsible for facilitating ”Going Down
+the EECS Stack”, a course that explores
+the different fields within the EECS major, in Fall 2021.
+}
+\sectionsep
+
+
+\runsubsection{Curiosity}
+\descript{ | Tutor and Co-founder}
+\location{May 2020 - Aug 2020}
+\vspace{3pt}
+\begin{tightemize}
+\item Tutored high school students on STEM topics and SAT prep during Summer 2020
+\item Raised ~\rupee{15,000} and donated all funds to COVID-19 and flood relief
+\end{tightemize}
+\sectionsep
+
+\section{Skills}
+Python \textbullet{} C/C++ \textbullet{} Git \textbullet{} Linux/Bash \textbullet{} Verilog \textbullet{} Chisel \textbullet{} Go \textbullet{} RISC-V \textbullet{} CUDA \textbullet{} Java \textbullet{} Vivado \textbullet{} Docker \textbullet{} Kubernetes \textbullet{} ROS % \textbullet{} Machine Learning \textbullet{} Deep Learning \textbullet{} Computer Vision
+\sectionsep
+
+% \section{References}
+
+% \href{https://www2.eecs.berkeley.edu/Faculty/Homepages/nikolic.html}{\textbf{Prof. Borivoje Nikolic}}
+
+% \href{https://www2.eecs.berkeley.edu/Faculty/Homepages/asanovic.html}{\textbf{Prof. Krste Asanovic}}
+
+% \href{https://www2.eecs.berkeley.edu/Faculty/Homepages/ysshao.html}{\textbf{Prof. Sophia Shao}}
+
+% \section{Languages}
+% \begin{minipage}[t]{.6\textwidth}
+% \subsection{Programming}
+% \location{Over 5000 lines:}
+% Java \textbullet{}   Shell \textbullet{} JavaScript \textbullet{} Matlab \textbullet{}
+% OCaml \textbullet{} Python \textbullet{} Rails \textbullet{} \LaTeX\ \\ 
+% \location{Over 1000 lines:}
+% C \textbullet{} C++ \textbullet{} CSS \textbullet{} PHP \textbullet{} Assembly \\
+% \location{Familiar:}
+% AS3 \textbullet{} iOS \textbullet{} Android \textbullet{} MySQL
+% \sectionsep
+% \end{minipage}
+% \hfill
+% \begin{minipage}[t]{.35\textwidth}
+% \subsection{Spoken \& Written}
+% \location{Native fluency:} English, Spanish\\
+% \location{Reading fluency:} Chinese, Japanese\\
+% \end{minipage}
+
+\end{document}  \documentclass[]{article}

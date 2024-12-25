@@ -122,10 +122,12 @@ Programming Languages and Compilers (A)
 
 \section{Research Interests: Computer Architecture}
 Hyperscale Architecture and Systems 
-\textbullet{} 
-Hardware/Software Co-design 
 \textbullet{}
-Profile-Guided Methods
+Hardware Design Methodology
+% \textbullet{} 
+% Hardware/Software Co-design 
+% \textbullet{}
+% Profile-Guided Methods
 \sectionsep
 
 \section{Research Experience}
@@ -139,29 +141,38 @@ Profile-Guided Methods
 
 \vspace{\topsep} % Hacky fix for awkward extra vertical space
 
-\descript{Multi-level Simulation | {\bf In-progress}}
+\descript{Hybrid Simulation/Emulation | {\bf Collaboration with AMD/Xilinx} | {\bf Jun 2024 - Present}}
 {\normalsize
 \begin{tightemize}
-\item Building a multi-level simulator that trades-off speed and fidelity in a hierarchy of simulators to enable DSE on large workloads
-\item Using program analysis to identify critical portions of an execution trace to execute at high fidelity
-\item Investigating warm-up strategies to approximate cache state 
+\item Building a hybrid simulation/emulation platform atop FireSim to enable design verification and early DSE 
+\item Initial prototype allows system bus modules to be simulated in C++ while the rest of the SoC is emulated on an FPGA
+\item Initial results show O(10 MHz) simulation frequency when running Linux+Coremark and snooping on SoC memory requests in software 
+\end{tightemize}
+}
+
+\descript{Multi-level Simulation | {\bf Oct 2023 - Apr 2024}}
+{\normalsize
+\begin{tightemize}
+\item Helped build a multi-level simulator trading off speed and fidelity in a hierarchy of simulators for DSE on large workloads
+\item Used program analysis to identify critical portions of an execution trace to execute at high fidelity
+\item Investigated warm-up strategies to approximate cache state 
 \end{tightemize}
 }
 
 
-\descript{Accelerating Hyperscale RPCs | {\bf In-progress}}
-{\normalsize
-\begin{tightemize}
-\item Investigating orchestration to offload RPCs to a collection of accelerators
-\item Working on porting the RPC software stack to RISC-V
-\end{tightemize}
-}
+% \descript{Accelerating Hyperscale RPCs | {\bf In-progress}}
+% {\normalsize
+% \begin{tightemize}
+% \item Investigating orchestration to offload RPCs to a collection of accelerators
+% \item Working on porting the RPC software stack to RISC-V
+% \end{tightemize}
+% }
 
 \descript{Extending FirePerf to Userspace |  \href{https://dl.acm.org/doi/pdf/10.1145/3373376.3378455}{\bf Original Paper} | \href{https://docs.google.com/gview?url=https://github.com/Quizenger/cv/raw/main/resources/FirePerf_Poster.pdf}{\bf Poster} | \href{https://docs.google.com/gview?url=https://github.com/Quizenger/cv/raw/main/resources/FirePerf_Paper.pdf}{\bf Userspace Paper}}
 
 \begin{tightemize}
 {\normalsize
-\item An FPGA-accelerated full-system hardware/software performance profiling utility built on top of FireSim
+\item FirePerf is an FPGA-accelerated full-system hardware/software performance profiling utility built atop FireSim
 \item Provides high-fidelity out-of-band introspection with call stack reconstruction and Flame Graph generation
 \item Extended FirePerf to support userspace profiling by instrumenting Rocket Chip trace port, obtaining DWARF + hex information, constructing a user binary search space and matching traces to it
 }
@@ -170,8 +181,7 @@ Profile-Guided Methods
 \descript{FireMarshal Networking |  \href{https://ieeexplore.ieee.org/abstract/document/9408192/}{\bf Original Paper}}
 \begin{tightemize}
 {\normalsize
-\item FireMarshal is an open-source software workload management tool for reliable and reproducible research 
-\item Automates bootable workload image generation and evaluation on FireSim, QEMU, and Spike platforms
+\item FireMarshal is an open-source software workload management tool that automates bootable workload image generation and evaluation on FireSim, QEMU, and Spike platforms
 \item Implemented running multi-node workloads concurrently in QEMU
 \item Implemented a network interface using Virtual Distributed Ethernet for multi-node workloads emulated in QEMU
 }
@@ -184,6 +194,21 @@ Profile-Guided Methods
 %\topsep
 % \vspace{\topsep}
 \section{Work Experience}
+
+\vspace{\topsep}
+\runsubsection{AMD/Xilinx}
+\descript{| Research and Advanced Development Intern}
+\location{Jun 2024 – Dec 2024 | San Jose, CA }
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\descript{Hybrid Simulation/Emulation}
+{\normalsize
+\begin{tightemize}
+\item Implemented and evaluated two strategies to build a fast and flexible hybrid simulation/emulation platform
+\item Ported an internal co-simulation framework and an open-source emulation framework to an internal emulation machine
+\end{tightemize}
+}
+
+\vspace{\topsep}
 \runsubsection{Omnistrate}
 \descript{| Software Engineering Intern}
 \location{May 2023 – July 2023 | Remote }
@@ -219,6 +244,17 @@ Profile-Guided Methods
 % Cache and Memory Structures
 
 \section{Teaching Experience}
+
+\runsubsection{CS 152/252A -  Computer Architecture and Engineering }
+\descript{| Teaching Assistant}
+\location{Spring 2024 |  \href{https://inst.eecs.berkeley.edu/~cs152/sp24/}{\bf Website}}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item Led overall organization of a course catered towards 130+ engineering graduates and upper-division undergraduates
+\item Meticulously designed and debugged problems for exams and homework assignments
+\item Helped students learn about pipelining, OoO core design, the memory hierarchy, virtual memory, branch prediction, etc., in weekly office hours and by answering on the course Q/A forum
+\end{tightemize}
+\sectionsep
 
 \runsubsection{EE290C - 22nm SoC for IoT}
 \descript{| Teaching Assistant}
@@ -265,6 +301,8 @@ and Integrated Circuits }
 \end{tightemize}
 \sectionsep
 
+\pagebreak
+
 \section{Projects}
 
 \runsubsection{Bearly ML: SoC for Machine Learning}
@@ -278,6 +316,7 @@ and Integrated Circuits }
 \item Maximum frequency: 500 MHz, Achievable Throughput: 2.6 uint8 GOPS
 \end{tightemize}
 \sectionsep
+
 
 % \runsubsection{RISC-V Core on FPGA}
 % \descript{| EECS151}
@@ -297,8 +336,6 @@ and Integrated Circuits }
 % \item Performed >25\% better than baseline bimodal predictor
 % \end{tightemize}
 % \sectionsep
-
-\pagebreak
 
 \runsubsection{PintOS}
 \descript{| Projects for CS162}
@@ -324,8 +361,9 @@ and Integrated Circuits }
 \section{Publications and Presentations}
 \vspace{8pt}
 \begin{tightemize}
-% \item Whangbo, Joonho, Edwin Lim, Chengyi Lux Zhang, Kevin Anderson, Abraham Gonzalez,\custombold{ Raghav Gupta,} Nivedha Krishnakumar, et al. \custombold{"FireAxe: Multi-FPGA Simulation for Scale-Up Hardware Designs."} (Under submission)
-\item <Anonymized>, <Anonymized>, <Anonymized>, <Anonymized>, <Anonymized>,\custombold{ Raghav Gupta,} <Anonymized>, et al. \custombold{"Partitioning Large-Scale Monolithic Hardware Designs for FireSim."} (Under submission)
+\item Whangbo, Joonho, Edwin Lim, Chengyi Lux Zhang, Kevin Anderson, Abraham Gonzalez,\custombold{ Raghav Gupta,} Nivedha Krishnakumar, et al. \custombold{"FireAxe: Partitioned FPGA-Accelerated Simulation of Large-Scale RTL Designs,"} in Proceedings of the 2024 ACM/IEEE 51st Annual International Symposium on Computer Architecture (ISCA), 2024.
+% , pp. 501–515, doi: 10.1109/ISCA59077.2024.00044."
+%\item <Anonymized>, <Anonymized>, <Anonymized>, <Anonymized>, <Anonymized>,\custombold{ Raghav Gupta,} <Anonymized>, et al. \custombold{"Partitioning Large-Scale Monolithic Hardware Designs for FireSim."} (Under submission)
 % \item Whangbo, J., Lim, E., Zhang, C.L., Anderson, K., Gonzalez, A.,\custombold{ Gupta, R.}, Krishnakumar, N., Karandikar, S., Shao, Y. S., Nikolic, B., \& Asanovic, K. \custombold{Partitioning Large-Scale Monolithic Designs for FireSim.} (Under submission)
 \item Chi, Yufeng, Franklin Huang,\custombold{ Raghav Gupta,} Ella Schwarz, Jennifer Zhou, Reza Sajadiany, Animesh Agrawal, et al. \href{https://hc2023.hotchips.org/assets/program/posters/HC2023.UCBerkeley.YufengChi.Poster.v06.pdf} {\custombold{"A Heterogeneous RISC-V SoC for ML Applications in Intel 16 Technology."}} Poster presented at HotChips 2023, Stanford, CA, August 27-28, 2023.
 \end{tightemize}
